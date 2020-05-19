@@ -1,25 +1,23 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import React from "react";
+import { Link } from "react-router-dom";
+import { selectUsers } from "../store/selectors";
+import { useSelector } from "react-redux";
 
 export default function Header() {
-    return (
-        <div>
-           
-      
-            <header>
-                <Link to="/" >
-                    <button>Home</button>
-                </Link>
-                <p>dit is de header</p>
-                <Link to="/cart" >
-                    <button>Cart</button>
-                </Link>
-                
+  const user = useSelector(selectUsers);
 
-            </header>
-            
-           
-        </div>
-    )
+  return (
+    <div>
+      <header>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+        <p>Hallo {user.name}</p>
+        <Link to="/cart">
+          <button>Cart</button>
+        </Link>
+        <p>Shoppingcart contains {user.basket.length} items</p>
+      </header>
+    </div>
+  );
 }
