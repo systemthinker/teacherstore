@@ -14,6 +14,7 @@ export default function ProductCard(props) {
   const sorted = props.sorted
 
   const teachers = useSelector(selectTeachers);
+  console.log('teachers', teachers)
 
   return (
     <div>

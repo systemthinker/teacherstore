@@ -5,17 +5,37 @@ import { useSelector,useDispatch } from 'react-redux';
 
 export default function FilterByMenu() {
 
-const technologies = useSelector(selectTechnologies)    
+const technologies = useSelector(selectTechnologies).flat() 
+
+const flattenedTechnologies = [...new Set(technologies)];
+
+console.log('flattended technologies', flattenedTechnologies)
+    
 const teachers = useSelector(selectTeachers)
 const dispatch = useDispatch();
-const [FilterBy, setFilterBy] = useState([])
+const [filterBy, setFilterBy] = useState("")
 
-console.log('technologies', technologies)  
+
+
+
   
-// let sortedTeachers = sortBy === "priceHighest" ? teachers.sort(comparePriceHighest) : teachers;
-// sortedTeachers = sortBy === "name" ? teachers.sort(compareName) : teachers;
-// sortedTeachers = sortBy === "timesBooked" ? teachers.sort(comparePopularity) : teachers;
-// sortedTeachers = sortBy === "priceLowest" ? teachers.sort(comparePriceLowest) : teachers;
+
+
+
+  const teacherArrayCopy = [...teachers];
+
+  const newTeachersFiltered = teacherArrayCopy.filter(teacher => teacher.technologies.map((tech)=> tech.title).includes(filterBy))
+
+
+
+  
+  
+
+
+
+
+
+ 
 
 
 
@@ -24,15 +44,16 @@ console.log('technologies', technologies)
 
 
 
-// useEffect(() => {
+useEffect(() => {
+    if(filterBy !== ""){
+    const action = {
+        type: "CHANGE_SORTING_BY_TAG",
+        payload: newTeachersFiltered
+        } 
+        dispatch(action) 
+    }
     
-//     const action = {
-//         type: "CHANGE_SORTING",
-//         payload: sortedTeachers
-//         } 
-//         dispatch(action) 
-    
-// }, [sortBy])
+}, [filterBy])
 
 
 
@@ -45,13 +66,14 @@ console.log('technologies', technologies)
 return (
     <div className="App">
         <p>
-            Sort order:{" "}
-            {/* <select onChange={(e)=>setSortBy(e.target.value)}>
-                <option value="priceHighest">Sort by Highest price</option>
-                <option value="priceLowest">Sort by lowest price</option>
-                <option value="name">Sort by name</option>
-                <option value="timesBooked">Sort by popularity</option>
-            </select> */}
+            Filter order:{" "}
+            <select onChange={(e)=>setFilterBy(e.target.value)}>
+               {[...flattenedTechnologies].map((technology)=>{
+                   return (
+                    <option key={technology.id} value={technology}>{technology}</option>    
+                   )
+               })}
+            </select>
          </p>
 
          

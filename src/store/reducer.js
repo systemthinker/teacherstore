@@ -101,12 +101,21 @@ export default function reducer(state = initialState, action) {
         },
       };
     case "CHANGE_SORTING":
-      console.log('change sorting called')
+      
       return {
         ...state,
         teachers : [...action.payload]
         
       } 
+    case "CHANGE_SORTING_BY_TAG":
+    console.log('change sortting by tag called')
+    
+    return {
+      ...state,
+      teachers : [...action.payload]
+      
+    }   
+    
       
       
 
