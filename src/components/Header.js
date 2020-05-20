@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { selectUsers } from "../store/selectors";
 import { useSelector } from "react-redux";
+import './header.css'
 
 export default function Header() {
   const user = useSelector(selectUsers);
 
   return (
     <div>
-      <header>
+      <header className="header">
         <Link to="/">
           <button>Home</button>
         </Link>

@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from '../components/Header'
 import ProductCard from "../components/ProductCard";
+import SortByMenu from "../components/SortByMenu";
+import { selectTeachers } from "../store/selectors";
+import { useSelector } from "react-redux";
 
 
 export default function HomePage() {
-
+const teachers = useSelector(selectTeachers)
 
   return (
    <div>
     <Header />
+    <SortByMenu/>
     <ProductCard/>
     
     

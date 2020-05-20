@@ -8,6 +8,7 @@ const initialState = {
       github_username: "kelleyvanevert",
       website: "https://hi-im-kelley.netlify.com/",
       createdAt: "2020-03-10T14:44:44.335Z",
+      price: 1,
       technologies: [
         {
           id: 1,
@@ -31,6 +32,7 @@ const initialState = {
       intro: "CHECK YOSELF BEFORE YO WRECK YOSELF #thuglyfe",
       github_username: "Reinoptland",
       website: null,
+      price: 2,
       createdAt: "2020-03-10T14:44:44.336Z",
       technologies: [
         {
@@ -50,6 +52,7 @@ const initialState = {
       intro: "Hi! I'm Matias, teacher of Codaisseur, from Uruguay!",
       github_username: "matiagarcia91",
       website: null,
+      price: 3,
       createdAt: "2020-03-10T14:44:44.336Z",
       technologies: [],
     },

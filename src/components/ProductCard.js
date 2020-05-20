@@ -4,12 +4,15 @@ import "./productCard.css";
 import { Link } from "react-router-dom";
 import AddToCartButton from "./AddToCartButton";
 import RemoveFromCartButton from "./RemoveFromCartButton";
+import SortByMenu from './SortByMenu'
 
 const selectTeachers = (reduxState) => {
   return reduxState.teachers;
 };
 
-export default function ProductCard() {
+export default function ProductCard(props) {
+  const sorted = props.sorted
+   
   const teachers = useSelector(selectTeachers);
 
   return (
