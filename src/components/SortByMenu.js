@@ -6,9 +6,9 @@ export default function SortByMenu() {
   
 const teachers = useSelector(selectTeachers)
 const dispatch = useDispatch();
-const [sortBy, setSortBy] = useState('price')
+const [sortBy, setSortBy] = useState('priceHighest')
 
-function comparePrice(teacherA, teacherB) {
+function comparePriceHighest(teacherA, teacherB) {
   
     return teacherB.price - teacherA.price;
   }
@@ -17,8 +17,24 @@ function compareName(teacherA, teacherB){
         return teacherA.name.localeCompare(teacherB.name)
        
     } 
+
+function comparePopularity(teacherA, teacherB){
+        return teacherB.totalBookings - teacherA.totalBookings;
+         
+        }   
+function comparePriceLowest(teacherA, teacherB){
+    return teacherA.price - teacherB.price
+}          
   
-const sortedTeachers = sortBy === "price" ? teachers.sort(comparePrice) : teachers.sort(compareName);
+let sortedTeachers = sortBy === "priceHighest" ? teachers.sort(comparePriceHighest) : teachers;
+sortedTeachers = sortBy === "name" ? teachers.sort(compareName) : teachers;
+sortedTeachers = sortBy === "timesBooked" ? teachers.sort(comparePopularity) : teachers;
+sortedTeachers = sortBy === "priceLowest" ? teachers.sort(comparePriceLowest) : teachers;
+
+
+
+
+
 
 
 
@@ -45,8 +61,10 @@ return (
         <p>
             Sort order:{" "}
             <select onChange={(e)=>setSortBy(e.target.value)}>
-                <option value="price">Sort by price</option>
+                <option value="priceHighest">Sort by Highest price</option>
+                <option value="priceLowest">Sort by lowest price</option>
                 <option value="name">Sort by name</option>
+                <option value="timesBooked">Sort by popularity</option>
             </select>
          </p>
 

@@ -9,6 +9,7 @@ const initialState = {
       website: "https://hi-im-kelley.netlify.com/",
       createdAt: "2020-03-10T14:44:44.335Z",
       price: 1,
+      totalBookings: 50,
       technologies: [
         {
           id: 1,
@@ -33,6 +34,7 @@ const initialState = {
       github_username: "Reinoptland",
       website: null,
       price: 2,
+      totalBookings: 666,
       createdAt: "2020-03-10T14:44:44.336Z",
       technologies: [
         {
@@ -53,8 +55,18 @@ const initialState = {
       github_username: "matiagarcia91",
       website: null,
       price: 3,
+      totalBookings: 150,
       createdAt: "2020-03-10T14:44:44.336Z",
-      technologies: [],
+      technologies: [
+        {
+          id: 3,
+          title: "Being Chill",
+        },
+        {
+          id: 4,
+          title: "Droppin da tunes",
+        },
+      ],
     },
   ],
 

@@ -12,7 +12,7 @@ const selectTeachers = (reduxState) => {
 
 export default function ProductCard(props) {
   const sorted = props.sorted
-   
+
   const teachers = useSelector(selectTeachers);
 
   return (
@@ -25,6 +25,11 @@ export default function ProductCard(props) {
             </Link>
             <h3>{teacher.name}</h3>
             <p className="introStyle">{teacher.intro}</p>
+            
+            {teacher.technologies.map((tag)=>{
+                return <span key={tag.id}className="Tag">{`${tag.title} `}</span>
+                })}  
+
             <AddToCartButton />
             <RemoveFromCartButton />
           </div>

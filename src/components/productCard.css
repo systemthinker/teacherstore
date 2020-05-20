@@ -1,3 +1,13 @@
 .introStyle {
     font-style : italic;
 }
+
+.Tag {
+    border-radius: 5px;
+    padding: 1px 3px;
+  
+    color: white;
+    font-weight: bold;
+    font-size: 0.85em;
+    background: #555;
+  }
