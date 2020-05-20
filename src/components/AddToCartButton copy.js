@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { selectShoppingBasket } from '../store/selectors'
 
-const selectShoppingBasket = (reduxState) => {
-  return reduxState.user.basket;
-};
+
 
 export default function AddToCartButton() {
   const dispatch = useDispatch();

@@ -5,3 +5,7 @@ export const selectTeachers = (state) => {
 export const selectUsers = (state) => {
   return state.users;
 };
+
+export const selectShoppingBasket = (state) => {
+  return state.users.basket
+}
