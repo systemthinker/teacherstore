@@ -70,15 +70,15 @@ export default function reducer(state = initialState, action) {
     case "ADD_ITEM":
       return {
         ...state,
-        user: { ...state.user, basket: [...state.user.basket, action.payload] },
+        user: { ...state.users, basket: [...state.users.basket, action.payload] },
       };
     case "REMOVE_ITEM":
       return {
         ...state,
-        user: {
-          ...state.user,
+        users: {
+          ...state.users,
           basket: [
-            ...state.user.basket.filter((item) => {
+            ...state.users.basket.filter((item) => {
               if (item !== action.payload) {
                 return { ...state };
               } else {
@@ -88,6 +88,16 @@ export default function reducer(state = initialState, action) {
           ],
         },
       };
+    case "CHANGE_SORTING":
+      console.log('change sorting called')
+      return {
+        ...state,
+        teachers : [...action.payload]
+        
+      } 
+      
+      
+
     default: {
       console.log("STATE CALLED");
       return state;
