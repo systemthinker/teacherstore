@@ -5,7 +5,9 @@ import { useSelector,useDispatch } from 'react-redux';
 export default function SortByMenu() {
   
 const teachers = useSelector(selectTeachers)
-console.log('teachers', teachers)
+
+console.log('what is teachers?', teachers)
+
 const dispatch = useDispatch();
 const [sortBy, setSortBy] = useState('priceHighest')
 

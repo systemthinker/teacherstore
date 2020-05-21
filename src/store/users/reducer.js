@@ -19,7 +19,7 @@ const initialState = {
 }  
 
   
-  export default function userSliceReducer(state = initialState, action) {
+  export default function usersSliceReducer(state = initialState, action) {
     switch (action.type) {
         case "ADD_ITEM":
       return {

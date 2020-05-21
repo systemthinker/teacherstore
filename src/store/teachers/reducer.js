@@ -75,7 +75,7 @@ const initialState = {
     
             
   
-  export default function teacherSliceReducer(state = initialState, action) {
+  export default function teachersSliceReducer(state = initialState, action) {
     switch (action.type) {
         case "CHANGE_SORTING":
       
@@ -96,6 +96,7 @@ const initialState = {
             
           }   
       default: {
+        
         return state;
       }
     }

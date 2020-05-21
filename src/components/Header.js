@@ -6,7 +6,7 @@ import './header.css'
 
 export default function Header() {
   const users = useSelector(selectUsers);
-  console.log('user selecdted????',users)
+  
 
   return (
     <div>
