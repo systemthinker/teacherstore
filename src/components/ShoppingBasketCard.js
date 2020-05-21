@@ -1,5 +1,6 @@
 import React from "react";
-import { selectUsers, selectTeachers } from "../store/selectors";
+import { selectUsers } from "../store/users/selectors";
+import { selectTeachers} from '../store/teachers/selectors'
 import { useSelector } from "react-redux";
 
 export default function ShoppingBasketCard() {
@@ -7,7 +8,7 @@ export default function ShoppingBasketCard() {
   const teachers = useSelector(selectTeachers);
 
   const filteredTeacher = teachers.filter((teacher) => {
-    if (users.basket.includes(teacher.id)) {
+    if (users.map(user => user.basket).includes(teacher.id)) {
       return true;
     } else {
       return false;

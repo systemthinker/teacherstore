@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import { selectTeachers } from '../store/selectors'
+import { selectTeachers } from '../store/teachers/selectors'
 import { useSelector,useDispatch } from 'react-redux';
 
 export default function SortByMenu() {
   
 const teachers = useSelector(selectTeachers)
+console.log('teachers', teachers)
 const dispatch = useDispatch();
 const [sortBy, setSortBy] = useState('priceHighest')
 

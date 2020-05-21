@@ -5,16 +5,15 @@ import { Link } from "react-router-dom";
 import AddToCartButton from "./AddToCartButton";
 import RemoveFromCartButton from "./RemoveFromCartButton";
 import SortByMenu from './SortByMenu'
+import { selectTeachers } from '../store/teachers/selectors'
 
-const selectTeachers = (reduxState) => {
-  return reduxState.teachers;
-};
 
-export default function ProductCard(props) {
-  const sorted = props.sorted
+
+export default function ProductCard() {
+ 
 
   const teachers = useSelector(selectTeachers);
-  console.log('teachers', teachers)
+  
 
   return (
     <div>

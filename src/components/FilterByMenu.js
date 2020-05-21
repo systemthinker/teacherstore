@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { selectTeachers, selectTechnologies } from '../store/selectors'
+import { selectTeachers, selectTechnologies } from '../store/teachers/selectors'
 import { useSelector,useDispatch } from 'react-redux';
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
-import { selectUsers } from "../store/selectors";
+import { selectUsers } from "../store/users/selectors";
 import ShoppingBasketCard from "../components/ShoppingBasketCard";
 
 export default function ShoppingCartPage() {
