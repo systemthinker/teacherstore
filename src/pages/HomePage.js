@@ -7,14 +7,14 @@ import { selectTeachers } from "../store/teachers/selectors";
 import { useSelector } from "react-redux";
 
 
-export default function HomePage() {
+export default function HomePage(props) {
 const teachers = useSelector(selectTeachers)
 
   return (
    <div>
     <Header />
     <SortByMenu/>
-    <FilterByMenu/>
+    <FilterByMenu />
     <ProductCard/>
     
     

@@ -87,14 +87,8 @@ const initialState = {
               teachers: [...action.payload]
               
             } 
-          case "CHANGE_SORTING_BY_TAG":
-          console.log('change sortting by tag called')
-          
-          return {
-            ...state,
-            teachers : [...action.payload]
             
-          }   
+          
       default: {
         
         return state;

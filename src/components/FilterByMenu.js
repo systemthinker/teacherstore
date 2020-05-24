@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import { selectTeachers, selectFilteredTeachers } from '../store/teachers/selectors'
+import { selectTeachers, selectFilteredTeachers, selectTechnologies } from '../store/teachers/selectors'
 import { useSelector,useDispatch } from 'react-redux';
 
 
-export default function FilterByMenu() {
+export default function FilterByMenu(props) {
 
 // const technologies = useSelector(selectTechnologies).flat() 
 
@@ -12,17 +12,26 @@ export default function FilterByMenu() {
 // console.log('flattended technologies', flattenedTechnologies)
 
 
+
+
     
 
 
 
 const teachers = useSelector(selectTeachers)
+const technologies = useSelector(selectTechnologies)
 const dispatch = useDispatch();
 const [filterByTechnology, setFilterByTechnology] = useState("")
 
-const filteredTeachers = useSelector(selectFilteredTeachers("JavaScript"))
 
-console.log('filtedTeachers222222222222', filteredTeachers)
+
+
+
+const flattenedTechnologies = technologies.flat()
+        
+const removeDuplicatedTechnologies = [...new Set(flattenedTechnologies)];
+
+
 
 
 
@@ -56,11 +65,12 @@ console.log('filtedTeachers222222222222', filteredTeachers)
 useEffect(() => {
     if(filterByTechnology !== ""){
     const action = {
-        type: "CHANGE_SORTING_BY_TAG",
-        payload: newTeachersFiltered
+        type: "FILTER_BY_TECHNOLOGY",
+        payload: filterByTechnology
         } 
         dispatch(action) 
     }
+   
     
 }, [filterByTechnology])
 
@@ -74,16 +84,16 @@ useEffect(() => {
 
 return (
     <div className="App">
-        {/* <p>
+        <p>
             Filter order:{" "}
             <select onChange={(e)=>setFilterByTechnology(e.target.value)}>
-               {[...flattenedTechnologies].map((technology)=>{
+               {[...removeDuplicatedTechnologies].map((technology)=>{
                    return (
                     <option key={technology.id} value={technology}>{technology}</option>    
                    )
                })}
             </select>
-         </p> */}
+        </p>
 
          
     </div>
