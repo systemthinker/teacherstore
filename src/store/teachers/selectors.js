@@ -1,5 +1,5 @@
 export const selectTechnologies = (state) => {
-    console.log('state teachers', state)
+    
     const mappedTechnologies = state.teachers.teachers.map(
       (teacher) => { return teacher.technologies.map((technologie)=>{
         return technologie.title
@@ -11,17 +11,7 @@ export const selectTeachers = (state) => {
     return state.teachers.teachers;
   };  
 
-export const selectFilteredTeachers = filterByTechnology => {
+export const selectFilteredTeachers = (state) => {
 
-    return state => {
-        
-        return state.teachers.teachers.filter(teacher =>{ 
-        
-        return teacher.technologies.find(t=> t.title === filterByTechnology)
-        
-        })
-    
-  
-    
-    };
+  return state.teachers.filteredTeachers
   };  

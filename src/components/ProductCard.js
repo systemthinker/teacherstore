@@ -11,20 +11,34 @@ import { selectTeachers, selectFilteredTeachers } from '../store/teachers/select
 
 export default function ProductCard(props) {
  
-  const [filterByTechnology, setFilterByTechnology] = useState("JavaScript")
+  // const [filterByTechnology, setFilterByTechnology] = useState("JavaScript")
 
   const teachers = useSelector(selectTeachers)
 
-  const filteredTeachers = useSelector(selectFilteredTeachers(filterByTechnology))
+  console.log('teachers???', teachers)
 
-  console.log('filtered teachers', filteredTeachers)
-  console.log('filteredbyTechnologies', filterByTechnology)
+  const filteredTeachers = useSelector(selectFilteredTeachers)
+
+  console.log('filtedteachers', filteredTeachers)
+
+ 
+
   
+
+  function displayTeachers(){
+    if (filteredTeachers.length === 0){
+      return teachers
+    } else {
+      return filteredTeachers
+    }
+  }
+
+  const result = displayTeachers();
 
   return (
     <div>
 
-      {filteredTeachers.map((teacher) => {
+      {result.map((teacher) => {
         return (
           <div key={teacher.id}>
             <Link to={`/details/${teacher.name}`}>

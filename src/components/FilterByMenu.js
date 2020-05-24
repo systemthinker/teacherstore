@@ -70,10 +70,25 @@ useEffect(() => {
         } 
         dispatch(action) 
     }
-   
+    // if(filterByTechnology !== ""){    
+    // const action = {
+    //         type: "FILTER_TEACHERS",
+    //         payload: filterByTechnology
+    // }    
+        
+             
+    //     dispatch(action) 
+    // }
     
+
+
+   
+   
 }, [filterByTechnology])
 
+const filteredTeachers = useSelector(selectFilteredTeachers)
+
+console.log('filtered teachers', filteredTeachers)
 
 
 

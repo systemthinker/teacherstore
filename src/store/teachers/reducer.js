@@ -69,14 +69,50 @@ const initialState = {
             },
           ],
         }, 
-      ]
+      ],
+      filteredTeachers : []
     }
- 
+
+  // function filterTeachers(filterByTechnology){
+  //   return state.teachers.teachers.filter(teacher =>{ 
+        
+  //     return teacher.technologies.find(t=> t.title === filterByTechnology)  
+  //   })
+  // }
+  
+  
     
             
   
   export default function teachersSliceReducer(state = initialState, action) {
     switch (action.type) {
+
+      case "FILTER_BY_TECHNOLOGY":
+
+      
+        const filterByTechnology = action.payload;
+        console.log('filtedbytech WORKS', filterByTechnology)
+       
+       
+        function filterTeachers(filterByTechnology) {
+          return state.teachers.filter(teacher =>{ 
+              
+                return teacher.technologies.find(t=> t.title === filterByTechnology)  
+              })
+      
+        }
+
+        const result = filterTeachers(filterByTechnology);
+        console.log('???? result', result)
+        
+        return {
+        ...state,
+        filteredTeachers: [...result]
+                
+        }
+      
+
+
         case "CHANGE_SORTING":
       
             return {
@@ -86,7 +122,11 @@ const initialState = {
               ...state,
               teachers: [...action.payload]
               
-            } 
+            }; 
+        
+         
+          
+          
             
           
       default: {
