@@ -1,16 +1,14 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './productCardDetails.css'
-import { useParams, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import { selectTeachers } from '../store/teachers/selectors'
 
 
-const selectTeachers = (reduxState) =>{
-    return reduxState.teachers
-}
+
 
 export default function ProductDetailsCard() {
     const teachers = useSelector(selectTeachers)
-    const params = useParams();
     const history = useHistory();
     const pathName = history.location.pathname
     const languageFromPath = pathName.replace('/details/','')
@@ -22,12 +20,8 @@ export default function ProductDetailsCard() {
            
     })
 
-    console.log('filtered', filteredTeacher)
+   
 
-    
-    console.log('languageFromPath', languageFromPath)
-
-    // console.log('teacher.technologies', teacher.technologies)
 
     return (
         <div>
@@ -39,8 +33,8 @@ export default function ProductDetailsCard() {
                 <p className="introStyle">{teacher.intro}</p>
                 
                  {teacher.technologies.map((tag)=>{
-                     console.log('tag title', tag.title)
-                    return <span className="Tag">{tag.title}</span>
+                     
+                    return <span key={tag.id} className="Tag">{tag.title}</span>
                 })}
 
                 </div>         

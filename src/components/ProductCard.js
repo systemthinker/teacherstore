@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import "./productCard.css";
 import { Link } from "react-router-dom";
 import AddToCartButton from "./AddToCartButton";
 import RemoveFromCartButton from "./RemoveFromCartButton";
-import SortByMenu from './SortByMenu'
+
 import { selectTeachers, selectFilteredTeachers } from '../store/teachers/selectors'
 
 
 
-export default function ProductCard(props) {
+export default function ProductCard() {
  
-  // const [filterByTechnology, setFilterByTechnology] = useState("JavaScript")
+
 
   const teachers = useSelector(selectTeachers)
 
-  console.log('teachers???', teachers)
+  
 
   const filteredTeachers = useSelector(selectFilteredTeachers)
 
-  console.log('filtedteachers', filteredTeachers)
+  
 
  
 

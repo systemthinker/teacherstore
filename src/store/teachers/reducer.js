@@ -91,7 +91,7 @@ const initialState = {
 
       
         const filterByTechnology = action.payload;
-        console.log('filtedbytech WORKS', filterByTechnology)
+        
        
        
         function filterTeachers(filterByTechnology) {
@@ -103,7 +103,7 @@ const initialState = {
         }
 
         const result = filterTeachers(filterByTechnology);
-        console.log('???? result', result)
+        
         
         return {
         ...state,
@@ -115,14 +115,22 @@ const initialState = {
 
         case "CHANGE_SORTING":
       
+
             return {
                 
 
             
               ...state,
-              teachers: [...action.payload]
+              filteredTeachers: [...action.payload]
               
             }; 
+
+        case "RESET_FILTERS":
+          
+        return {
+          ...state,
+          filteredTeachers: [...action.payload]
+        }
         
          
           

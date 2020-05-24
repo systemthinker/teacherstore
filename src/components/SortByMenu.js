@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react'
-import { selectTeachers } from '../store/teachers/selectors'
+import { selectTeachers, selectFilteredTeachers } from '../store/teachers/selectors'
 import { useSelector,useDispatch } from 'react-redux';
 
 export default function SortByMenu() {
   
 const teachers = useSelector(selectTeachers)
+const filteredTeachers = useSelector(selectFilteredTeachers)
 
-console.log('what is teachers?', teachers)
 
 const dispatch = useDispatch();
 const [sortBy, setSortBy] = useState('priceHighest')
@@ -28,11 +28,19 @@ function comparePopularity(teacherA, teacherB){
 function comparePriceLowest(teacherA, teacherB){
     return teacherA.price - teacherB.price
 }          
-  
-let sortedTeachers = sortBy === "priceHighest" ? teachers.sort(comparePriceHighest) : teachers;
+
+let sortedTeachers;
+if(filteredTeachers.length === 0){
+sortedTeachers = sortBy === "priceHighest" ? teachers.sort(comparePriceHighest) : teachers;
 sortedTeachers = sortBy === "name" ? teachers.sort(compareName) : teachers;
 sortedTeachers = sortBy === "timesBooked" ? teachers.sort(comparePopularity) : teachers;
 sortedTeachers = sortBy === "priceLowest" ? teachers.sort(comparePriceLowest) : teachers;
+} else {
+    sortedTeachers = sortBy === "priceHighest" ? filteredTeachers.sort(comparePriceHighest) : filteredTeachers;
+    sortedTeachers = sortBy === "name" ? filteredTeachers.sort(compareName) : filteredTeachers;
+    sortedTeachers = sortBy === "timesBooked" ? filteredTeachers.sort(comparePopularity) : filteredTeachers;
+    sortedTeachers = sortBy === "priceLowest" ? filteredTeachers.sort(comparePriceLowest) : filteredTeachers;
+}
 
 
 

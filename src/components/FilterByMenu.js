@@ -5,16 +5,7 @@ import { useSelector,useDispatch } from 'react-redux';
 
 export default function FilterByMenu(props) {
 
-// const technologies = useSelector(selectTechnologies).flat() 
-
-// const flattenedTechnologies = [...new Set(technologies)];
-
-// console.log('flattended technologies', flattenedTechnologies)
-
-
-
-
-    
+  
 
 
 
@@ -70,15 +61,7 @@ useEffect(() => {
         } 
         dispatch(action) 
     }
-    // if(filterByTechnology !== ""){    
-    // const action = {
-    //         type: "FILTER_TEACHERS",
-    //         payload: filterByTechnology
-    // }    
-        
-             
-    //     dispatch(action) 
-    // }
+   
     
 
 
@@ -88,7 +71,7 @@ useEffect(() => {
 
 const filteredTeachers = useSelector(selectFilteredTeachers)
 
-console.log('filtered teachers', filteredTeachers)
+
 
 
 
@@ -104,7 +87,7 @@ return (
             <select onChange={(e)=>setFilterByTechnology(e.target.value)}>
                {[...removeDuplicatedTechnologies].map((technology)=>{
                    return (
-                    <option key={technology.id} value={technology}>{technology}</option>    
+                    <option key={technology} value={technology}>{technology}</option>    
                    )
                })}
             </select>

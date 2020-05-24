@@ -15,7 +15,7 @@ export default function Header() {
           <button>Home</button>
         </Link>
         Hallo {users.map((user)=>{
-            return<p>{user.name}</p>
+            return<p key={user.id}>{user.name}</p>
         })}
         <Link to="/cart">
           <button>Cart</button>
